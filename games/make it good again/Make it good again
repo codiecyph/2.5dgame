@@ -1,0 +1,62 @@
+make it good again(Important notes)
+Specifications
+
+slack
+https://app.slack.com/client/TED3YNTPX/D018SJLGELU
+
+Asana
+https://app.asana.com/0/1117270058997788/board
+
+github:
+https://github.com/ekmakeitgoodagain/miga
+
+Heroku apps:  https://dashboard.heroku.com/pipelines/e56a5673-58c2-490f-8608-970d4484c778
+
+staging: https://miga-app-stage.herokuapp.com/
+
+production: https://miga-app.herokuapp.com/
+
+1) The installation was successful however I had to disable the redis since I wasn't 
+using linux or mac however to be done I will check how the windows version of redis works without a mac and linux
+
+
+You can use ruby version 2.6.2 from the ruby lang website and use the rubyinstaller_devkit version since that sets everything up for you within your environment. The process can daunting however if you're able to successfully run everything becomes easier. :)
+I installed the application however had to set up some configurations during the process and had to comment out the workers for I think session since not using redis and so on.
+So comment out workers web concurrency and  preload in the puma.rb file.
+#####################################################################
+how in install makeitgoodagain on windows machine if you have used BCRYPT BEFORE OR if it is your first time you can just bundle install using gem "bcrypt", platforms: :ruby which is 3.1.12  or gem "bcrypt", "~> 3.1.12"
+Add this to the gem file
+gem "bcrypt", platforms: :ruby
+
+gem uninstall bcrypt
+gem install bcrypt --platform=ruby
+
+then bundle install
+
+add to gem file
+gem 'wdm', '>= 0.1.0'
+
+and use this tutorial as guide
+http://railsinstallfest.org/guides/installfest/adding_authentication/
+
+in puma.rb comment
+##workers ENV.fetch("WEB_CONCURRENCY") { 2 }
+and 
+
+##preload_app!
+
+####################################################################
+
+
+Observation:
+I noticed the first developer used slim (and might as well used haml if wanted to)as template language for the site as way keeping code abstract in arranging the site. The second developer using the normal ruby or .rb for his workers section
+
+To be done:
+slim
+https://www.youtube.com/watch?v=fpEgZi3_RI4
+https://www.youtube.com/watch?v=GJwHevf2wYE
+https://www.youtube.com/watch?v=xhFi9oj_wiI
+
+
+2) 
+

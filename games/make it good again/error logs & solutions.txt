@@ -1,0 +1,50 @@
+error logs
+
+rake aborted!
+Errno::EACCES: Permission denied @ rb_file_s_rename 
+
+solution:
+close the browser and run
+bundle exec rake db:create
+instead of rake db:migrate
+
+
+1. WARNING: CryptKeeper 2.0 contains breaking changes and may require you to reencrypt your data! Please view the README at https://github.com/jmazzi/crypt_keeper for more information.
+2. warning: parser/current is loading parser/ruby26, which recognizes
+warning: 2.6.0-compliant syntax, but you are running 2.6.2.
+warning: please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+
+solution 
+use 'gem install parser -v 2.6.2' 
+explain- which installs the version of parser and  
+uninstall other previous version using 'gem uninstall parser -v 2.6.0'
+to view all other version of parser you can use 'gem list parser' which should show the list of parsers
+Go to the gemlock file and find the parser (2.6.0.0) and change it to parser (2.6.2.0)
+
+alternative
+uninstall other previous version by using something like 'gem uninstall parser -v 2.6.2'
+use 'gem install parser -v 2.6.0'
+and bundle install
+
+or changing 
+Go to the gemlock file and find the parser (2.6.0.0) and change it to parser (2.6.2.0)
+and bundle install
+
+hint- https://github.com/whitequark/parser/issues/189
+https://whitequark.github.io/parser/
+https://bundler.io/guides/bundler_2_upgrade.html
+https://github.com/whitequark/parser#compatibility-with-ruby-mri
+
+
+
+3. couldn't find file 'jquery/dist/jquery' with type 'application/javascript'
+
+solution
+gem 'jquery-rails'
+gem  'rails-ujs'
+
+and yarn install
+
+things to watch out for bundle update which can lead to things being broken
+note gem bootsnap is used to store byte code in cache
+

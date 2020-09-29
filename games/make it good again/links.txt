@@ -1,0 +1,8 @@
+https://edgeguides.rubyonrails.org/active_record_migrations.html#migrations-and-seed-data
+https://github.com/geokit/geokit/issues/179
+https://github.com/geokit/geokit-rails#how-to-geocode-an-address
+https://stackoverflow.com/questions/50079467/does-geokit-use-a-default-google-api-key
+https://guides.rubyonrails.org/v4.1/command_line.html
+https://www.youtube.com/watch?v=6f_hKv_iSYU
+https://www.youtube.com/watch?v=mSTOIDJUQuU
+rettelse og service

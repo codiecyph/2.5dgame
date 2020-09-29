@@ -1,0 +1,55 @@
+Getting started
+
+    Clone the repository to a folder of your choosing: git clone https://github.com/ekmakeitgoodagain/miga.git. You must have access to the miga git repository to be able to clone it
+
+    miga runs on Ruby version 2.6.2. Therefore, your local Ruby environment must be set to version 2.6.2. The recommended way to do this is with rbenv (Windows - download here: https://rubyinstaller.org/downloads/archives/)
+
+    Run bundle install. This will install any Ruby gems configured in Gemfile
+
+    Run yarn install. This will install any dependencies configured in package.json
+
+    Run rake db:create. This will create the development and test databases
+
+    Run rake db:migrate. This will run all migrations in the migrate folder
+
+    Run rake db:seed. This will insert the objects defined in seeds.rb
+
+    Run redis-server. In order to start your Redis server, Redis must be installed locally. Read more about how to install Redis and start the local Redis server here
+
+    Run rails s. This will start the local Rails server. The application should now be available at localhost:3000
+
+Troubleshooting
+
+    If you get the IO::EINPROGRESSWaitWritable in Static#welcome exception immediately when trying to access localhost:3000, you likely don't have a local redis-server running. Information about how to set up a local Redis server can be found here
+
+    If you get the ImageMagick/GraphicsMagick is not installed, it's because the ImageMagick dependency is not installed. For some reason, this dependency doesn't get installed automatically. More information here
+
+    Selenium::WebDriver::Error::WebDriverError: Could not find Firefox binary (os=linux). Make sure Firefox is installed or set the path manually with Selenium::WebDriver::Firefox::Binary.path= I was getting this error when running tests because I'm using Windows subsystem for Linux which didn't have Firefox installed. I fixed it by running sudo apt install firefox from my Ubuntu terminal
+
+    If you have issues with newly added translations not being located by the i18n-js module, try running rake i18n:js:export
+
+Database
+
+The application uses PostgreSQL, so you must have this set up locally. Any version greater than 9.1 will work. Additional database information including database name, username, password and host can be found in the database.yml file.
+
+Parameters for the production database can be found by clicking here and then clicking "View credentials". Note you must have access to the Heroku app to be able to access them.
+Tests
+
+    Run tests with bundle exec rspec spec
+    Run all tests in a file with spec/controllers/users_controller_spec.rb
+    Run a single test with spec/controllers/users_controller_spec.rb:241 (where 241 is the line number of the test)
+
+Deployment
+Production
+
+Deploying to production is done by navigating to the Heroku deploy pane then going to Manual deploy and clicking Deploy branch. This will (by default) deploy the git master branch to production.
+Staging
+
+The Heroku staging application is set up to automatically deploy to stage whenever a commit is pushed to the develop branch.
+Review app
+
+We use Heroku review apps to test new features before deploying them to staging. To set up a review app, open a new github pull request and navigate to the pipeline overview page. From here, find your pull request in the REVIEW APPS column, and click Create review app. This will create a brand new application with the code from the pull request. The newly created application's database will automatically be seeded with rake db:seed (defined in app.json).
+Miscellaneous
+
+The production application can be viewed here.
+The staging application can be viewed here.
